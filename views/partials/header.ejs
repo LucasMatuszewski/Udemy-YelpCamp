@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+	<!-- Modernizr - for old browsers witch don't support e.g. animations -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript" async></script>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/<%= css %>.css">
+	<title><%= title //if else is no nessesery becouse we use default res.locals.title if there is no defined title in route %></title>
+</head>
+<body>
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="/">YelpCamp</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+	    	<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+			<ul class="navbar-nav">
+				<li class="nav-item active">
+					<a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/campgrounds">Campgrounds</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link btn btn-warning btn-sm" href="/campgrounds/new">Add a New Camp</a>
+				</li>
+				<!-- Check if there is var currentUser passed to EJS template from app.js -->
+				<% if(!currentUser){ %>
+				<li class="nav-item">
+					<a class="nav-link" href="/login">Login</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/register">Sign Up</a>
+				</li>
+				<% } else { %>
+				<li class="nav-item">
+					<a class="nav-link" href="/logout">Logout (<%= currentUser.username %>)</a>
+				</li>
+				<% } %>
+			</ul>
+		</div>
+	</nav>
+
+<!-- FLASH MESSAGE: -->
+	<div class="container">
+		<% 
+		// Alternative from UDEMY Course:
+		// if(error && error.length >0) { 
+		// if(erorr) is NOT ok, becouse error array/object exist (is true)
+		%>
+		<% if(error != "") { %>
+			<div class="alert alert-danger" role="alert">
+				<%= error %>	
+			</div>
+		<% } if(success != "") { %>
+			<div class="alert alert-success" role="alert">
+				<%= success %>	
+			</div>
+		<% } %>
+	</div>

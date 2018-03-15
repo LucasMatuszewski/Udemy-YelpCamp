@@ -1,0 +1,26 @@
+<% include ../partials/header %>
+
+<div class="container">
+	
+	<div class="row justify-content-center">
+		<h1>Edit a Comment to: <%= campground.name %></h1>
+	</div>
+	<div class="row justify-content-center">
+		<div class="col-md-6 col-sm-6">
+			<form action="/campgrounds/<%= campground.id %>/comments/<%= comment.id %>?_method=PUT" method="POST" accept-charset="utf-8">
+				<div class="form-group"> <!-- Grouped name comment[xxx] creates object "comment" -->
+					<textarea class="form-control" type="text" name="comment[text]" placeholder="Type Your Comment..."><%= comment.text %></textarea>
+					Author: <%= comment.author.username %>
+				</div>
+				<!-- <div class="form-group">
+					<input class="form-control" type="text" name="comment[author]" placeholder="<%= currentUser.username %>">
+				</div> -->
+				<button class="btn btn-lg btn-primary btn-block" type="submit">Edit a Comment</button>
+			</form>
+			<a href="/campgrounds"><< Go Back</a>	
+		</div>	
+	</div>
+
+</div>
+
+<% include ../partials/footer %>

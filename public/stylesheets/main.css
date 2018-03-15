@@ -1,0 +1,12 @@
+body {
+	/*background-color: purple;*/
+}
+
+nav.navbar {
+	margin-bottom: 10px;
+}
+
+span.ion-map {
+	color: #007bff;
+	margin-right: 10px;
+}
