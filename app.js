@@ -64,10 +64,10 @@ var User 		= require("./models/user");
 
 // SEEDING DataBase - make initial data in database
 // (e.g. initial setup of an application, administrator account, dummy data etc.)
-
+/*
 var seedDB = require("./seeds");
 seedDB(); //invoke a function from seeds.js file
-
+*/
 
 /////////////////////
 // AUTHENTICATION: /
