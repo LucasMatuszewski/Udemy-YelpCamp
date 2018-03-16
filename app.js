@@ -50,7 +50,11 @@ var express 	= require("express"),
 
 // Add Mongoose to connect with MongoDB:
 var mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/yelp_camp");
+// Local MongoDB:
+// mongoose.connect("mongodb://localhost/yelp_camp");
+
+// Remote MongoDB on mLab.com
+mongoose.connect("mongodb://lucas.matuszewski:testowe123@ds047484.mlab.com:47484/yelpcamp");
 
 // Require Mongoose Schema:
 var Comment 	= require("./models/comment");
@@ -60,10 +64,10 @@ var User 		= require("./models/user");
 
 // SEEDING DataBase - make initial data in database
 // (e.g. initial setup of an application, administrator account, dummy data etc.)
-/*
+
 var seedDB = require("./seeds");
 seedDB(); //invoke a function from seeds.js file
-*/
+
 
 /////////////////////
 // AUTHENTICATION: /
