@@ -143,6 +143,10 @@ app.use("/campgrounds/:id/comments", commentsRoutes);
 // We use routes with defoult beggining URLs "/", "/campground" and "/campgrounds/:id/comments"
 // and we dont have to use this deoult in files from /routes direcotry
 
-app.listen(3000, function(){
+// Listen for Localhost:
+// app.listen(3000, function(){
+
+// Listen for Hosting / Heroku (we can't decide wich port it will be)
+app.listen(process.env.PORT || 3000, function(){
 	console.log('The YelpCamp app is listening');
 });
