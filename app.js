@@ -74,7 +74,8 @@ var mongoose = require("mongoose");
 
 // IMPORTANT: its good to use env var to hide important data from code, like DB URLs, logins etc.
 
-mongoose.connect(process.env.DATABASEURL); // we have to set this variable on Node localy or on a server
+mongoose.connect(process.env.DATABASEURL || "mongodb://localhost/yelp_camp");
+// if we didn't set env variable on Node localy or on a server it will use defoult DB on localhost
 
 // Local MongoDB:
 // mongoose.connect("mongodb://localhost/yelp_camp");
