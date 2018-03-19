@@ -1,4 +1,4 @@
 # Udemy-YelpCamp
 
-Project form Udemy Bootcamp with Colt Steel:
+Project from Udemy Bootcamp with Colt Steel:
 https://www.udemy.com/the-web-developer-bootcamp

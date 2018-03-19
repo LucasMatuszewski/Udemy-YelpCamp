@@ -50,11 +50,37 @@ var express 	= require("express"),
 
 // Add Mongoose to connect with MongoDB:
 var mongoose = require("mongoose");
+
+///////////////////////////
+// Environment Variables // like: process.env.PORT, prosess.env.IP
+///////////////////////////
+// We can use it to know if we are on Production (public for users) or Development Environment.
+// On production its better to use local database for tests. We can use env variable:
+// process.env.DATABASEURL
+
+// To set DATABASEURL variable we have to export/set it on node server, by typing in the local console:
+// export DATABASEURL=mongodb://localhost/yelp_camp (it works only on cloud9.com)
+// On Heroku.com go to Dashboard > Settings > Config Variables > Reveal Config Vars and set:
+// Key = databaseURL, Value = mongodb://lucas.matuszewski:testowe123@ds047484.mlab.com:47484/yelpcamp
+// or just type on command line:
+// heroku config:set DATABASEURL=mongodb://lucas.matuszewski:testowe123@ds047484.mlab.com:47484/yelpcamp
+// or: heroku config:set NPM_CONFIG_PRODUCTION=false (by defoult it's =true)
+// so on heroku we can use elso in app.js: if(NPM_CONFIG_PRODUCTION){}
+
+// !!! To set env var localy type in console (works on all OS becouse its in NPM):
+// npm run env NODE_ENV=production || npm run env DATABASEURL="mongodb://localhost/yelp_camp"
+
+// In PowerShell type: $env:NODE_ENV="production" or $env:DATABASEURL="mongodb://localhost/yelp_camp"
+
+// IMPORTANT: its good to use env var to hide important data from code, like DB URLs, logins etc.
+
+mongoose.connect(process.env.DATABASEURL); // we have to set this variable on Node localy or on a server
+
 // Local MongoDB:
 // mongoose.connect("mongodb://localhost/yelp_camp");
 
 // Remote MongoDB on mLab.com
-mongoose.connect("mongodb://lucas.matuszewski:testowe123@ds047484.mlab.com:47484/yelpcamp");
+// mongoose.connect("mongodb://lucas.matuszewski:testowe123@ds047484.mlab.com:47484/yelpcamp");
 
 // Require Mongoose Schema:
 var Comment 	= require("./models/comment");
@@ -143,9 +169,15 @@ app.use("/campgrounds/:id/comments", commentsRoutes);
 // We use routes with defoult beggining URLs "/", "/campground" and "/campgrounds/:id/comments"
 // and we dont have to use this deoult in files from /routes direcotry
 
+
+///////////////////////////
+// Environment Variables // process.env.PORT, prosess.env.IP
+///////////////////////////
+// We can use it to know if we are on Production (public for users) or Development Environment.
+// On production its better to use local database for tests. We can also use local port like here:
+
 // Listen for Localhost:
 // app.listen(3000, function(){
-
 // Listen for Hosting / Heroku (we can't decide wich port it will be)
 app.listen(process.env.PORT || 3000, function(){
 	console.log('The YelpCamp app is listening');
