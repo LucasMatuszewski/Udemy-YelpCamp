@@ -3,7 +3,7 @@
 // index.js is always defoult file in a folder. It require other files.
 
 // Becouse methods used in this file use models, we have to require them:
-var Campground = require("../models/campground");
+var Training = require("../models/training");
 var Comment = require("../models/comment");
 
 
@@ -14,7 +14,7 @@ var Comment = require("../models/comment");
 // 1. First way to export object with methods:
 var middlewareObj = {};
 
-middlewareObj.checkCampgroundOwnership = function(){
+middlewareObj.checkTrainingOwnership = function(){
 
 };
 
@@ -28,7 +28,7 @@ module.exports = middlewareObj;
 // 2. Second way to export object with methods:
 
 var middlewareObj = {
-	checkCampgroundOwnership: function(){
+	checkTrainingOwnership: function(){
 
 	},
 	checkCommentOwnership: function(){
@@ -41,7 +41,7 @@ module.exports = middlewareObj;
 // 3. Anather way to export object with methods:
 
 module.exports = {
-	checkCampgroundOwnership: function(){
+	checkTrainingOwnership: function(){
 
 	},
 	checkCommentOwnership: function(){
@@ -65,45 +65,45 @@ var middlewareObj = {
 		res.redirect("/login");
 	},
 	// Midleware function to check if logged in user is author of an object:
-	checkCampgroundOwnership: function(req, res, next){
+	checkTrainingOwnership: function(req, res, next){
 		// is user logged in?
 		if(req.isAuthenticated()){
-			Campground.findById(req.params.id, function(err, foundCampground){
+			Training.findById(req.params.id, function(err, foundTraining){
 			if(err){
 				// FLASH MESSAGE:
-				req.flash("error", "Oops, Campground not found :/");
+				req.flash("error", "Oops, Training not found :/");
 				res.redirect("back"); // it will redirect one step back in a browser (its universal)
 			} else {
 
 				//with changed ID in URL app.js will crash.
-				//So if foundCampground doesn't exist throw error and go back:
-				if(!foundCampground){
-					req.flash("error", "Oops, Campground not found :/");
+				//So if foundTraining doesn't exist throw error and go back:
+				if(!foundTraining){
+					req.flash("error", "Oops, Training not found :/");
 					return res.redirect("back");
 				}
 
-				// does logged in user own this campground?
-				if(foundCampground.author.id.equals(req.user._id)){ // to compare we have to use node method .equals
+				// does logged in user own this training?
+				if(foundTraining.author.id.equals(req.user._id)){ // to compare we have to use node method .equals
 				// we can't compare them with == or ===, becouse they are Mongoos objects, not a strings or numbers (we can't compare objects)
-				// if(foundCampground.author.id === req.user._id){ // so it won't work
+				// if(foundTraining.author.id === req.user._id){ // so it won't work
 					console.log("Author and logged in User are the same:");
-					console.log(foundCampground.author.id + " " + typeof foundCampground.author.id); // Mongoos object
+					console.log(foundTraining.author.id + " " + typeof foundTraining.author.id); // Mongoos object
 					console.log(req.user._id + " " + typeof req.user._id); // String? (so first is not identical "===" with second)
 
 					next(); // if logged in user is an author, function will do next thing (callback)
 
 					/* //We don't render here, becouse this function have to be universal. So we use next()
 					// BEFORE REFACTORISATION:
-					res.render("campgrounds/edit", {campground: foundCampground}); //send "campground:" to ejs template
+					res.render("trainings/edit", {training: foundTraining}); //send "training:" to ejs template
 					*/
 				} else {
 					// FLASH MESSAGE:
-					req.flash("error", "Oops! You can edit or delete only Your Campgrounds :)");
+					req.flash("error", "Oops! You can edit or delete only Your Trainings :)");
 
 					console.log("Author and logged in User are NOT the same:");
-					console.log(foundCampground.author.id + " " + typeof foundCampground.author.id); // Mongoos object
+					console.log(foundTraining.author.id + " " + typeof foundTraining.author.id); // Mongoos object
 					console.log(req.user._id + " " + typeof req.user._id); // on Udemy course it was a string, but it is an object too
-					// res.send("It's not Your Campground, You dont have permission to edit it");
+					// res.send("It's not Your Training, You dont have permission to edit it");
 					res.redirect("back");
 				}
 			}
@@ -111,7 +111,7 @@ var middlewareObj = {
 		} else { //if user is not logged in:
 			console.log("User is not logged in");
 			// FLASH MESSAGE:
-			req.flash("error", "You need to be logged in to edit a campground :)");
+			req.flash("error", "You need to be logged in to edit a training :)");
 			res.redirect("/login");
 		}
 	},
@@ -127,7 +127,7 @@ var middlewareObj = {
 				// does logged in user own this comment?
 				if(foundComment.author.id.equals(req.user._id)){ // to compare we have to use node method .equals
 				// we can't compare them with == or ===, becouse they are Mongoos objects, not a strings or numbers (we can't compare objects)
-				// if(foundCampground.author.id === req.user._id){ // so it won't work
+				// if(foundTraining.author.id === req.user._id){ // so it won't work
 					console.log("Author and logged in User are the same:");
 					console.log(foundComment.author.id + " " + typeof foundComment.author.id); // Mongoos object
 					console.log(req.user._id + " " + typeof req.user._id); // String? (so first is not identical "===" with second)
@@ -141,7 +141,7 @@ var middlewareObj = {
 					console.log("Author and logged in User are NOT the same:");
 					console.log(foundComment.author.id + " " + typeof foundComment.author.id); // Mongoos object
 					console.log(req.user._id + " " + typeof req.user._id); // on Udemy course it was a string, but it is an object too
-					// res.send("It's not Your Campground, You dont have permission to edit it");
+					// res.send("It's not Your Training, You dont have permission to edit it");
 					res.redirect("back");
 				}
 			}

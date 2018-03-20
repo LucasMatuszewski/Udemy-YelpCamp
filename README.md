@@ -1,4 +1,4 @@
-# Udemy-YelpCamp
+# Edukey - in search for good Instructors
 
-Project from Udemy Bootcamp with Colt Steel:
+Project based on YelpCamp from Udemy Bootcamp with Colt Steel:
 https://www.udemy.com/the-web-developer-bootcamp

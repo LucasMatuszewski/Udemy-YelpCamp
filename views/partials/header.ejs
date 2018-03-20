@@ -1,48 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
+	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 	<!-- Modernizr - for old browsers witch don't support e.g. animations -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript" async></script>
+	<link href="https://fonts.googleapis.com/css?family=Lato:400,900" rel="stylesheet">
+	<script type="text/javascript" src="/js/typed.js"></script>
 	<link rel="stylesheet" type="text/css" href="/stylesheets/<%= css %>.css">
 	<title><%= title //if else is no nessesery becouse we use default res.locals.title if there is no defined title in route %></title>
 </head>
 <body>
 
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand" href="/">YelpCamp</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-	    	<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-			<ul class="navbar-nav">
+	<nav class="navbar navbar-expand-lg navbar-dark">
+		<div class="container">
+			<a class="navbar-brand" href="/">
+				<svg version="1.0" xmlns="http://www.w3.org/2000/svg" style="height: 45px; margin: -5px 0 -15px 0; padding: 0;" viewBox="0 0 912.000000 287.000000" preserveAspectRatio="xMidYMid meet">
+					<g transform="translate(0.000000,287.000000) scale(0.100000,-0.100000)" fill="#fff" stroke="none">
+						<path d="M2901 2253 c-29 -148 -56 -274 -58 -280 -3 -9 -19 -1 -46 22 -65 56
+						-135 78 -263 83 -194 7 -299 -33 -434 -168 -71 -70 -95 -102 -137 -185 -60
+						-119 -93 -215 -125 -361 -30 -142 -32 -313 -4 -394 41 -120 135 -214 245 -247
+						163 -48 398 9 516 124 l48 48 -7 -40 c-3 -22 -9 -59 -13 -83 l-6 -42 255 0
+						254 0 182 883 c100 485 182 888 182 895 0 9 -60 12 -268 12 l-267 0 -54 -267z
+						m-184 -508 c12 -8 29 -35 38 -58 16 -43 16 -47 -24 -243 -58 -278 -63 -295
+						-111 -338 -46 -41 -78 -56 -121 -56 -45 0 -84 25 -105 67 -51 102 13 423 108
+						548 64 84 159 119 215 80z"/>
+						<path d="M4945 2498 c-6 -26 -355 -1751 -355 -1755 0 -2 121 -3 270 -3 l270 0
+						5 23 c3 12 18 92 35 177 l30 154 82 83 c45 45 83 81 85 79 1 -1 28 -88 58
+						-192 31 -104 65 -219 76 -257 l20 -67 279 0 c154 0 280 3 280 6 0 6 -173 518
+						-264 781 l-24 71 254 231 255 231 -233 0 -233 0 -268 -250 c-147 -138 -267
+						-247 -267 -243 0 5 41 215 90 467 50 253 90 465 90 473 0 10 -50 13 -265 13
+						l-265 0 -5 -22z"/>
+						<path d="M1026 2075 c-349 -66 -661 -368 -726 -703 -16 -77 -8 -237 14 -308
+						68 -218 316 -356 636 -355 278 1 509 89 672 258 77 79 159 213 131 213 -4 0
+						-113 7 -241 15 -129 8 -238 13 -243 9 -5 -3 -9 -12 -9 -19 0 -23 -60 -84 -102
+						-106 -152 -78 -308 -7 -308 140 0 77 -41 71 475 71 l463 0 11 63 c16 92 14
+						262 -4 332 -50 196 -180 326 -380 379 -87 24 -291 29 -389 11z m234 -330 c35
+						-36 56 -107 46 -158 l-7 -37 -199 0 c-158 0 -200 3 -200 13 0 28 53 118 88
+						148 59 52 108 70 180 66 54 -3 67 -7 92 -32z"/>
+						<path d="M6747 2080 c-385 -70 -707 -385 -758 -743 -27 -183 24 -353 137 -456
+						62 -57 190 -124 279 -146 358 -88 788 43 968 297 24 35 54 82 66 105 20 40 20
+						43 4 43 -10 0 -117 7 -238 15 -268 18 -245 18 -245 2 0 -33 -53 -87 -114 -117
+						-169 -83 -325 7 -299 173 l6 37 462 0 c419 0 463 2 469 16 4 9 11 61 18 115
+						37 331 -109 568 -397 644 -70 19 -288 28 -358 15z m189 -320 c41 -26 66 -88
+						62 -156 l-3 -49 -197 -3 c-194 -2 -198 -2 -198 18 0 55 92 164 163 195 49 22
+						133 19 173 -5z"/>
+						<path d="M3456 1988 c-9 -40 -55 -262 -102 -493 -100 -490 -105 -547 -61 -638
+						57 -115 189 -166 374 -146 154 17 326 101 392 191 17 23 31 39 31 36 0 -3 -9
+						-50 -20 -103 -11 -53 -20 -99 -20 -101 0 -2 115 -4 255 -4 140 0 255 1 255 3
+						0 1 59 295 130 652 72 357 130 655 130 662 0 10 -58 13 -270 13 l-270 0 -5
+						-22 c-2 -13 -39 -198 -80 -411 -42 -214 -80 -399 -85 -412 -15 -38 -73 -97
+						-115 -116 -55 -26 -97 -24 -123 4 -42 45 -39 83 51 535 l83 422 -267 0 -268 0
+						-15 -72z"/>
+						<path d="M7456 2043 c29 -120 254 -1253 254 -1279 0 -27 -8 -44 -33 -69 -49
+						-49 -97 -58 -269 -52 -131 4 -148 3 -152 -12 -16 -53 -68 -342 -63 -347 3 -4
+						97 -7 209 -7 177 0 213 2 280 21 143 39 245 107 321 214 25 35 230 383 457
+						773 226 391 421 725 432 743 l20 32 -209 0 -208 -1 -179 -340 c-98 -187 -180
+						-338 -183 -336 -4 5 -93 636 -93 665 0 9 -66 12 -294 12 -275 0 -294 -1 -290
+						-17z"/>
+					</g>
+				</svg>
+			</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+		    	<span class="navbar-toggler-icon"></span>
+			</button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="nav navbar-nav">
+				<li class="nav-item"><a class="nav-link" href="#">Find Trainers</a></li>
+				<li class="nav-item dropdown">
+					<a href="/trainings" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Find Trainings <span class="caret"></span></a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+						<a class="dropdown-item" href="#">Computer Basics</a>
+						<a class="dropdown-item" href="#">MS Office</a>
+						<a class="dropdown-item" href="#">Mobile Devices</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#">Google Docs</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#">Internet Marketing</a>
+					</div>
+				</li>
+				<li class="nav-item dropdown">
+					<a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Country <span class="caret"></span></a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+						<a class="dropdown-item" href="#">Germany</a>
+						<a class="dropdown-item" href="#">Poland</a>
+						<a class="dropdown-item" href="#">United Kingdom</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#">USA</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#">China</a>
+					</div>
+				</li>
+			</ul>
+
+			<ul class="navbar-nav ml-auto"> <!-- ml-auto == margin left auto -->
 				<li class="nav-item active">
-					<a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="/campgrounds">Campgrounds</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link btn btn-warning btn-sm" href="/campgrounds/new">Add a New Camp</a>
+					<a class="nav-link" href="/trainings/new">Add a New Training <span class="sr-only">(current)</span></a>
 				</li>
 				<!-- Check if there is var currentUser passed to EJS template from app.js -->
 				<% if(!currentUser){ %>
 				<li class="nav-item">
-					<a class="nav-link" href="/login">Login</a>
+					<a class="nav-link" href="/login">Login <i class="fa fa-user" aria-hidden="true"></i></a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="/register">Sign Up</a>
+					<a class="nav-link" href="/register">Sign Up <i class="fa fa-user-plus" aria-hidden="true"></i></a>
 				</li>
 				<% } else { %>
 				<li class="nav-item">
-					<a class="nav-link" href="/logout">Logout (<%= currentUser.username %>)</a>
+					<a class="nav-link" href="/logout">Logout (<%= currentUser.username %>) <i class="fa fa-user" aria-hidden="true"></i></a>
 				</li>
 				<% } %>
 			</ul>
 		</div>
+	</div>	
 	</nav>
 
 <!-- FLASH MESSAGE: -->

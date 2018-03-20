@@ -3,11 +3,11 @@
 <div class="container">
 	
 	<div class="row justify-content-center">
-		<h1>Add a new Comment to: <%= campground.name %></h1>
+		<h1>Add a new Comment to: <%= training.name %></h1>
 	</div>
 	<div class="row justify-content-center">
 		<div class="col-md-6 col-sm-6">
-			<form action="/campgrounds/<%= campground.id %>/comments" method="POST" accept-charset="utf-8">
+			<form action="/trainings/<%= training.id %>/comments" method="POST" accept-charset="utf-8">
 				<div class="form-group"> <!-- Grouped name comment[xxx] creates object "comment" -->
 					<textarea class="form-control" type="text" name="comment[text]" placeholder="Type Your Comment..."></textarea>
 					Author: <%= currentUser.username %>
@@ -17,7 +17,7 @@
 				</div> -->
 				<button class="btn btn-lg btn-primary btn-block" type="submit">Add a New Comment</button>
 			</form>
-			<a href="/campgrounds"><< Go Back</a>	
+			<a href="/trainings"><< Go Back</a>	
 		</div>	
 	</div>
 

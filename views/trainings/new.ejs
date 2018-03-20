@@ -1,0 +1,83 @@
+<% include ../partials/header %>
+
+<div class="container">
+	
+	<div class="row justify-content-center">
+		<h1>Add a new Training</h1>
+	</div>
+	<div class="row justify-content-center">
+		<div class="col-md-6 col-sm-6">
+			<form action="/trainings" method="POST" accept-charset="utf-8">
+				<div class="form-group">
+					<input class="form-control" type="text" name="training[name]" placeholder="Training name">
+				</div>
+				<div class="form-group">
+					<input class="form-control" type="text" name="training[urlAddress]" placeholder="URL address for this training, e.g.: excel-sredni">
+				</div>
+				<div class="form-group">
+					<select class="form-control" name="training[active]">
+						<option value="1">TAK</option>
+						<option value="0">NIE</option>
+					</select>
+				</div>
+				<!-- category: String, ??????? -->
+				<div class="form-group">
+					<select class="form-control" name="training[subcategory]">
+						<option value="">Select a category:</option>
+						<optgroup label="MS Office">
+							<option value="ms-excel">MS Excel</option>
+							<option value="ms-word">MS Word</option>
+							<option value="ms-powerpoint">MS PowerPoint</option>
+							<option value="ms-outlook">MS Outlook</option>
+							<option value="ms-access">MS Access</option>
+							<option value="ms-project">MS Project</option>
+						</optgroup>
+						<optgroup label="Programming">
+							<option value="vba">VBA</option>
+						</optgroup>
+						<option value="others">Others</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<input class="form-control" type="url" name="training[image]" placeholder="Image URL">
+				</div>
+				<div class="form-group">
+					<textarea class="form-control" type="text" name="training[shortDesc]" rows="2" placeholder="Short Description of a new training (for SEO and list of trainings)"></textarea>
+				</div>
+				<div class="form-group">
+					<textarea class="form-control" type="text" name="training[description]" rows="8" placeholder="Description of a new training"></textarea>
+				</div>
+				<div class="form-group">
+					<input class="form-control" type="number" min="0.00" step="0.01" name="training[price]" placeholder="Price per a person for this training (in USD)">
+				</div>
+				<div class="form-group">
+					<textarea class="form-control" type="text" name="training[audience]" placeholder="Audence of a new training"></textarea>
+				</div>
+				<div class="form-group">
+					<textarea class="form-control" type="text" name="training[goals]" placeholder="Goals of a new training"></textarea>
+				</div>
+				<div class="form-group">
+					<textarea class="form-control" type="text" name="training[benefits]" placeholder="Benefits of a new training"></textarea>
+				</div>
+				<div class="form-group">
+					<textarea class="form-control" type="text" name="training[methodology]" placeholder="Methodology of a new training"></textarea>
+				</div>
+				<div class="form-group">
+					<textarea class="form-control" type="text" name="training[sylabus]" rows="8" placeholder="Sylabus / Agenda of a new training"></textarea>
+				</div>
+				<div class="form-group">
+					<input class="form-control" type="text" name="training[keywords]" placeholder="Keywords / tags for searching">
+				</div>
+				<div class="form-group">
+					<input class="form-control" type="number" min="0.00" step="1.00" name="training[promotion]" placeholder="Promotion Points (higher = top of the list)">
+				</div>
+
+				<button class="btn btn-lg btn-primary btn-block" type="submit">Add a New Training</button>
+			</form>
+			<a href="/trainings"><< Go Back</a>	
+		</div>	
+	</div>
+
+</div>
+
+<% include ../partials/footer %>

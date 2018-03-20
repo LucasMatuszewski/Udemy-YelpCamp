@@ -1,12 +1,109 @@
 body {
 	/*background-color: purple;*/
+	font-family: 'Lato', sans-serif;
 }
+
+/*
+ **************
+ * NAVIGATION *
+ **************
+ */
 
 nav.navbar {
 	margin-bottom: 10px;
+	padding: 0 10px;
 }
 
-span.ion-map {
-	color: #007bff;
-	margin-right: 10px;
+.navbar-dark {
+	background: #004581; /*navyblue*/
 }
+.navbar-dark .navbar-nav>.active>a, .navbar-dark .navbar-nav>li>a:focus, .navbar-dark .navbar-nav>li>a:hover {
+	color: #fff;
+	background-color: #d30f10; /*red*/
+	padding: 14px;
+	margin: 0;
+}
+.navbar-dark .navbar-nav>.open>a, .navbar-dark .navbar-nav>.open>a:focus, .navbar-dark .navbar-nav>.open>a:hover {
+    background-color: #d30f10;
+    padding: 14px;
+    margin: 0;
+}
+.navbar-dark .navbar-nav>.active>a, .navbar-nav .btn-danger, .navbar-dark .navbar-nav>.active>a:focus, .navbar-dark .navbar-nav>.active>a:hover {
+    background-color: #d30f10;
+    padding: 14px;
+    margin: 0;
+}
+.navbar-dark .navbar-nav>li>a, .navbar-dark .navbar-brand, .navbar-dark .navbar-nav .nav-link, .navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link:focus, .navbar-dark .navbar-nav .nav-link:visited, .navbar-dark .navbar-toggler-icon {
+    color: #fff;
+    padding: 14px;
+    margin: 0;
+}
+.navbar-dark .navbar-toggler, .navbar-toggler-icon, .navbar-dark .navbar-toggler:hover, .navbar-dark .navbar-toggler:visited, .navbar-dark .navbar-toggler:focus {
+    border-color: #fff;
+    color: #fff;
+    background-color: transparent;
+}
+.search {
+	margin-top: 10px;
+}
+.search .form-control {
+	height: 25px;
+	width: 170px;
+	border: 0;
+	margin-right: -10px;
+}
+.search .btn-default {
+	background-color: transparent;
+	border: 0;
+}
+.search .glyphicon-search {
+	color: #fff;
+}
+
+
+
+/*
+ ***********
+ * CONTENT *
+ ***********
+ */
+
+a {
+	color: #d30f10;
+}
+
+span.fa-graduation-cap {
+	color: #004581; /*navyblue*/
+	margin: 0 3px 0 -15px;
+}
+
+
+#header iframe {
+	margin-top: -43px;
+	float: right;
+	padding: 5px;
+}
+
+@media (max-width: 1000px) {
+	#header iframe {
+		margin-top: -15px;
+		float: none;
+		width: 600px;
+	}
+}
+
+@media (max-width: 700px) {
+	#header iframe {
+		margin-top: -15px;
+		float: none;
+		width: 320px;
+	}
+}
+
+.btn-primary {
+	background-color: #004581; /*navyblue*/
+    border-color: #004581; /*navyblue*/
+}
+
+
+

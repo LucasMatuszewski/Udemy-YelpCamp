@@ -74,7 +74,7 @@ var mongoose = require("mongoose");
 
 // IMPORTANT: its good to use env var to hide important data from code, like DB URLs, logins etc.
 
-mongoose.connect(process.env.DATABASEURL || "mongodb://localhost/yelp_camp");
+mongoose.connect(process.env.DATABASEURL || "mongodb://localhost/edukey-1");
 // if we didn't set env variable on Node localy or on a server it will use defoult DB on localhost
 
 // Local MongoDB:
@@ -85,7 +85,7 @@ mongoose.connect(process.env.DATABASEURL || "mongodb://localhost/yelp_camp");
 
 // Require Mongoose Schema:
 var Comment 	= require("./models/comment");
-var Campground 	= require("./models/campground"); //we don't need to use ".js" (like with ".ejs")
+var Training 	= require("./models/training"); //we don't need to use ".js" (like with ".ejs")
 
 var User 		= require("./models/user");
 
@@ -134,7 +134,7 @@ app.use(function(req, res, next){
 	res.locals.success = req.flash("success");
 
 	// deafault <title>, if there is no title in route
-	res.locals.title = "YelpCamp - start Your camping";
+	res.locals.title = "Edukey - find instructor & start Your training";
 	// default css file name if there is no css name in route
 	res.locals.css = "main";
 
@@ -155,8 +155,8 @@ app.use(methodOverride("_method")); // "_method" is a parameter used in URL like
 
 // Index and AUTHENTICATION ROUTES - moved to routes/index.js
 var indexRoutes			= require("./routes/index"),
-// CAMPGROUND ROUTES - moved to routes/campgrounds.js
-	campgroundsRoutes 	= require("./routes/campgrounds"),
+// CAMPGROUND ROUTES - moved to routes/trainings.js
+	trainingsRoutes 	= require("./routes/trainings"),
 // COMMENTS ROUTES - moved to routes/comments.js
 	commentsRoutes		= require("./routes/comments");
 
@@ -165,9 +165,9 @@ var indexRoutes			= require("./routes/index"),
 
 // Use routes with beggining defoult URLs:
 app.use("/", indexRoutes);
-app.use("/campgrounds", campgroundsRoutes);
-app.use("/campgrounds/:id/comments", commentsRoutes);
-// We use routes with defoult beggining URLs "/", "/campground" and "/campgrounds/:id/comments"
+app.use("/trainings", trainingsRoutes);
+app.use("/trainings/:id/comments", commentsRoutes);
+// We use routes with defoult beggining URLs "/", "/training" and "/trainings/:id/comments"
 // and we dont have to use this deoult in files from /routes direcotry
 
 
@@ -181,5 +181,5 @@ app.use("/campgrounds/:id/comments", commentsRoutes);
 // app.listen(3000, function(){
 // Listen for Hosting / Heroku (we can't decide wich port it will be)
 app.listen(process.env.PORT || 3000, function(){
-	console.log('The YelpCamp app is listening');
+	console.log('The Edukey app is listening');
 });

@@ -1,9 +1,27 @@
 <% include partials/header %>
 
 <div id="landing-header">
-	<h1>Welcome to YelpCamp!</h1>
+	<h1>Find INSTRUCTOR near You!</h1>
+	<h3>Learn <span id="typed"></span> with best Experts</h3>
+	<hr>
+	<a href="/trainings" class="btn btn-lg btn-danger">See Our Trainings <i class="fa fa-mouse-pointer" aria-hidden="true"></i></a>
 
-	<a href="/campgrounds" class="btn btn-lg btn-success">See Our Campgrounds</a>
+	<div id="typed-strings">
+		<p><a href="#">MS Excel</a></p>
+		<p><a href="#">Business Intelligence</a></p>
+		<p><a href="#">Visual Basic</a></p>
+		<p><a href="#">Google Docs</a></p>
+	</div>
+
+	<script>
+		var typed = new Typed('#typed', {
+			stringsElement: '#typed-strings',
+			typeSpeed: 35,
+			loop: true,
+			backDelay: 1000,
+			showCursor: false
+		});
+	</script>
 </div>
 
 <ul class="slideshow">
@@ -14,4 +32,4 @@
 	<li></li>
 </ul>
 
-<% include partials/footer %>
+<% // include partials/footer %>

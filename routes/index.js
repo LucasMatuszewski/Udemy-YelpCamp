@@ -7,7 +7,7 @@ var User = require("../models/user");
 router.get("/", function(req, res) {
 	// We don't need to pass currentUser in all routes. We can use middleware function with res.locals
 	// res.render("home", {currentUser: req.user});
-	res.render("home", {css: "home", title: "The Home of YelpCamp!"});
+	res.render("home", {css: "home", title: "The Home of Edukey!"});
 });
 
 ////////////////////////////
@@ -17,7 +17,7 @@ router.get("/", function(req, res) {
 router.get("/register", function(req, res){
 	// We don't need to pass currentUser in all routes. We can use middleware function with res.locals
 	// res.render("register", {currentUser: req.user});
-	res.render("register", {title: "Registration to YelpCamp!"});
+	res.render("register", {title: "Registration in Edukey!"});
 });
 
 // regiser new user:
@@ -40,7 +40,7 @@ router.post("/register", function(req, res){
 		passport.authenticate("local")(req, res, function(){
 			// FLASH MESSAGE:
 			req.flash("success", "New account is created. Nice to meet You "+user.username+" :)");
-			res.redirect("/campgrounds");
+			res.redirect("/trainings");
 		});
 	});
 });
@@ -58,7 +58,7 @@ router.get("/login", function(req, res){
 	// If we send FLASH MESSAGE be /login route it will be accessible only on login.ejs
 	// But it's better to send FLASH MESSAGE to partials/header.ejs
 	// So we use standard res.render here and sand all messages in app.js by res.locals.error
-	res.render("login", {title: "Login to YelpCamp!"});
+	res.render("login", {title: "Login to Edukey!"});
 });
 
 // login a user:
@@ -68,7 +68,21 @@ router.get("/login", function(req, res){
 // if we use "local" strategy we have to tall Express to use it by typing:
 // passport.use(new LocalStrategy(User.authenticate())); (We already typed in on a beggining of this file)
 router.post("/login", passport.authenticate("local", {
-		successRedirect: "/campgrounds",
+
+	// ADD Flash Messege if failed to login - HOW??????
+		/*if(err){
+			// passport-local-mongoose won't register 2 users with the same username, and will give an error
+			console.log(err);
+			// FLASH MESSAGE:
+			req.flash("error", "Oops! Something went wrong: "+err.message); //err is an object with "name:" and "message:"
+			// FLASH MESSAGE DON'T WORK PROPERLY WITH res.render (old messages)
+			// return res.render("register"); //It's better to use "render" for rendering new sites with GET
+			// FLASH MESSAGE WORKS FINE WITH res.redirect:
+			return res.redirect("/register");
+
+		} // we don't need "else {}" becouse we used "return" which will stop a function*/
+
+		successRedirect: "/trainings",
 		failureRedirect: "/login"
 	}),	function(req, res){
 	// this callback don't do anythink. Its only to remember:
@@ -85,7 +99,7 @@ router.get("/logout", function(req, res){
 	req.logout(); // IT's ALL in passport :)
 	//FLASH MESSAGE:
 	req.flash("success", "Logged Out. See U soon :)");
-	res.redirect("/campgrounds");
+	res.redirect("/trainings");
 });
 
 //MIDLEWARE FUNCTION TO CHECK if user is LOGGED IN

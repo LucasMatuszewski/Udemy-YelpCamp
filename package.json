@@ -1,23 +1,24 @@
 {
-  "name": "yelpcamp",
-  "version": "11.0.0",
-  "description": "Refactoring Middleware + Flash Messages for Errors + LandingPage - Udemy Course",
+  "name": "Edukey",
+  "version": "1.0.0",
+  "description": "Edukey website based on YelpCamp v11 from Udemy Bootcamp",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js"
   },
   "keywords": [
-    "yelpcamp",
-    "udemy",
-    "course",
+    "Edukey",
+    "Udemy",
+    "Node",
     "Authorization",
-    "Update",
+    "Authentification",
     "Destroy",
     "Flash Messages",
-    "Errors"
+    "Errors",
+    "Bootstrap"
   ],
-  "author": "Lucas + Colt",
+  "author": "Lucas Matuszewski",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.2",

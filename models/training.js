@@ -7,17 +7,29 @@
 var mongoose = require("mongoose");
 
 // MongoDB SCHEMA SETUP:
-var campgroundSchema = new mongoose.Schema({
+var trainingSchema = new mongoose.Schema({
 	name: String,
+	urlAddress: String,
+	active: Number,
+	category: String,
+	subcategory: String,
 	image: String,
+	shortDesc: String,
 	description: String,
 	price: Number,
-	comments: [{ //array, becouse there could be many comments to one campground
+	audience: String,
+	goals: String,
+	benefits: String,
+	methodology: String,
+	sylabus: String,
+	keywords: String,
+	promotion: Number,
+	comments: [{ //array, becouse there could be many comments to one training
 		type: mongoose.Schema.Types.ObjectId,
 		ref: "Comment"
 	}], // array with refference to Schema of Comments. Save Id's of Comments here
 	author: {
-		id: { // without array, becouse there could be only one author of campground
+		id: { // without array, becouse there could be only one author of training
 			type: mongoose.Schema.Types.ObjectId,
 			ref: "User" // refference to User Schema to add
 		},
@@ -25,5 +37,5 @@ var campgroundSchema = new mongoose.Schema({
 	}
 });
 
-// Export new Model named "Campground" (it will create new collection named "Campgrounds"):
-module.exports = mongoose.model("Campground", campgroundSchema);
+// Export new Model named "Training" (it will create new collection named "Trainings"):
+module.exports = mongoose.model("Training", trainingSchema);

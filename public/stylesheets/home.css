@@ -1,10 +1,8 @@
 body {
 	background-color: #000;
+	font-family: 'Lato', sans-serif;
 }
 
-nav {
-	z-index: 1;
-}
 
 #landing-header {
 	z-index: 1;
@@ -14,9 +12,112 @@ nav {
 }
 
 #landing-header h1 {
+	font-size: 5em;
+	font-weight: 900;
 	color: #fff;
-	text-shadow: 2px 2px #000;
+	/*text-shadow: 2px 2px #000;*/
+	text-shadow: 0px 0.06em 0.05em rgba(0,0,0,0.4),
+				 0px 0.15em 0.8em rgba(0,0,0,0.2),
+				 0px 0.36em 1em rgba(0,0,0,0.1);
 }
+
+@media screen and (max-width: 700px) {
+	#landing-header h1 {
+		font-size: 2.5em;
+	}
+}
+
+#landing-header h3 {
+	color: #fff;
+	text-shadow: 0px 0.04em 0.02em rgba(0,0,0,0.4),
+				 0px -0.10em 0.3em rgba(0,0,0,0.2),
+				 0px -0.36em 1em rgba(0,0,0,0.1);
+}
+
+.btn-danger {
+	background-color: #d30f10; /*red*/
+}
+.fa-mouse-pointer {
+	margin: 3px -4px 2px 6px;
+}
+#typed a, #typed a:hover {
+	color: #fff;
+	font-weight: 900;
+}
+
+hr {
+	margin:1%;
+}
+
+/*
+ **************
+ * NAVIGATION *
+ **************
+ */
+
+nav {
+	z-index: 1;
+}
+
+nav.navbar {
+	margin-bottom: 10px;
+	padding: 0 10px;
+}
+
+.navbar-dark {
+	background: #004581; /*navyblue*/
+}
+.navbar-dark .navbar-nav>.active>a, .navbar-dark .navbar-nav>li>a:focus, .navbar-dark .navbar-nav>li>a:hover {
+	color: #fff;
+	background-color: #d30f10; /*red*/
+	height: 100%;
+	padding: 14px;
+    margin: 0;
+}
+.navbar-dark .navbar-nav>.open>a, .navbar-dark .navbar-nav>.open>a:focus, .navbar-dark .navbar-nav>.open>a:hover {
+    background-color: #d30f10;
+    padding: 14px;
+    margin: 0;
+}
+.navbar-dark .navbar-nav>.active>a, .navbar-dark .navbar-nav>.active>a:focus, .navbar-dark .navbar-nav>.active>a:hover {
+    background-color: #d30f10;
+    padding: 14px;
+    margin: 0;
+}
+.navbar-dark .navbar-nav>li>a, .navbar-dark .navbar-brand, .navbar-dark .navbar-nav .nav-link, .navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link:focus, .navbar-dark .navbar-nav .nav-link:visited, .navbar-dark .navbar-toggler-icon {
+    color: #fff;
+    padding: 14px;
+    margin: 0;
+}
+.navbar-dark .navbar-toggler, .navbar-toggler-icon, .navbar-dark .navbar-toggler:hover, .navbar-dark .navbar-toggler:visited, .navbar-dark .navbar-toggler:focus {
+    border-color: #fff;
+    color: #fff;
+    background-color: transparent;
+}
+.search {
+	margin-top: 10px;
+}
+.search .form-control {
+	height: 25px;
+	width: 170px;
+	border: 0;
+	margin-right: -10px;
+}
+.search .btn-default {
+	background-color: transparent;
+	border: 0;
+}
+.search .glyphicon-search {
+	color: #fff;
+}
+
+
+
+/*
+ *************
+ * SLIDESHOW *
+ *************
+ */
 
 .slideshow {
 	position: fixed;
@@ -44,23 +145,28 @@ nav {
 	animation: imageAnimation 50s linear infinite; /* nameOfAnimation - Speed - type of animation*/
 }
 
-.slideshow li:nth-child(1) { 
-  background-image: url(http://i.imgur.com/K3mPv14.jpg) 
+/* Photos from: https://unsplash.com/photos/UCZF1sXcejo */
+
+.slideshow li:nth-child(1) {
+  background-image: url(http://www.twojaeuropa.pl/l.matuszewski/img/jiri-wagner-270258-min.jpg);
+  /*background-image: url(http://i.imgur.com/2LSMCmJ.jpg);*/
 }
 .slideshow li:nth-child(2) { 
-  background-image: url(http://i.imgur.com/SBEmFpv.jpg);
+  background-image: url(https://images.unsplash.com/photo-1505373877841-8d25f7d46678?ixlib=rb-0.3.5&s=c28226e57e38f6a4d5076f4207675c99&auto=format&fit=crop&w=1000&q=80);
+  /*background-image: url(http://i.imgur.com/SBEmFpv.jpg);*/
   animation-delay: 10s; 
 }
 .slideshow li:nth-child(3) { 
-  background-image: url(http://i.imgur.com/emvhOnb.jpg);
+  background-image: url(https://images.unsplash.com/photo-1494707924465-e1426acb48cb?ixlib=rb-0.3.5&s=06a3576d1ba3e5a1246005e8cc79798b&auto=format&fit=crop&w=1350&q=80);
+  /*background-image: url(http://i.imgur.com/emvhOnb.jpg);*/
   animation-delay: 20s; 
 }
-.slideshow li:nth-child(4) { 
-  background-image: url(http://i.imgur.com/2LSMCmJ.jpg);
+.slideshow li:nth-child(4) {
+  background-image: url(https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?ixlib=rb-0.3.5&s=49f371407c10143c1f6c08d47f8e90a6&auto=format&fit=crop&w=1353&q=80);  
   animation-delay: 30s; 
 }
 .slideshow li:nth-child(5) { 
-  background-image: url(http://i.imgur.com/TVGe0Ef.jpg);
+  background-image: url(https://images.unsplash.com/photo-1505906922147-3298c0f1383c?ixlib=rb-0.3.5&s=cf5c48b7014102b63f3111384e48cb0f&auto=format&fit=crop&w=1350&q=80);
   animation-delay: 40s; 
 }
 
