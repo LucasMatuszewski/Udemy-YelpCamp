@@ -7,12 +7,12 @@ body {
 #landing-header {
 	z-index: 1;
 	position: relative;
-	text-align: center;
+	text-align: left;
 	padding-top: 40vh; /* vh = view height, like 40% */
 }
 
 #landing-header h1 {
-	font-size: 5em;
+	font-size: 4.5em;
 	font-weight: 900;
 	color: #fff;
 	/*text-shadow: 2px 2px #000;*/
@@ -24,6 +24,10 @@ body {
 @media screen and (max-width: 700px) {
 	#landing-header h1 {
 		font-size: 2.5em;
+	}
+	#typed a, #typed a:hover {
+		display: block;
+		height: 50px;
 	}
 }
 
@@ -46,7 +50,12 @@ body {
 }
 
 hr {
-	margin:1%;
+	/*margin:1%;*/
+}
+
+#benefits h4 {
+	color: #004581;
+	margin-top: 5px;
 }
 
 /*

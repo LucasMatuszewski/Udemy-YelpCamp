@@ -1,6 +1,6 @@
 {
   "name": "Edukey",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Edukey website based on YelpCamp v11 from Udemy Bootcamp",
   "main": "app.js",
   "scripts": {
