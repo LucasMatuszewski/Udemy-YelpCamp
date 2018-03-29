@@ -8,7 +8,7 @@ body {
 	z-index: 1;
 	position: relative;
 	text-align: left;
-	padding-top: 40vh; /* vh = view height, like 40% */
+	padding-top: 35vh; /* vh = view height, like 40% */
 }
 
 #landing-header h1 {
@@ -16,6 +16,11 @@ body {
 	font-weight: 900;
 	color: #fff;
 	/*text-shadow: 2px 2px #000;*/
+	text-shadow: 0px 0.06em 0.05em rgba(0,0,0,0.4),
+				 0px 0.15em 0.8em rgba(0,0,0,0.2),
+				 0px 0.36em 1em rgba(0,0,0,0.1);
+}
+#landing-header h3 {
 	text-shadow: 0px 0.06em 0.05em rgba(0,0,0,0.4),
 				 0px 0.15em 0.8em rgba(0,0,0,0.2),
 				 0px 0.36em 1em rgba(0,0,0,0.1);
@@ -59,6 +64,7 @@ hr {
 	height: 100%;
 	z-index: 1;
 	position: relative;
+	font-size: 15px;
 }
 
 #benefits h4 {

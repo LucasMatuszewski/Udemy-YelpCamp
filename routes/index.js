@@ -7,7 +7,11 @@ var User = require("../models/user");
 router.get("/", function(req, res) {
 	// We don't need to pass currentUser in all routes. We can use middleware function with res.locals
 	// res.render("home", {currentUser: req.user});
-	res.render("home", {css: "home", title: "The Home of Edukey!"});
+	res.render("home", {css: "home", title: "Edukey - best instructors near you!"});
+});
+
+router.get("/teach", function(req, res) {
+	res.render("instructors-lp", {css: "home", title: "Edukey - for best instructors and experts"});
 });
 
 ////////////////////////////
